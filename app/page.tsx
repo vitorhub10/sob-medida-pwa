@@ -1,5 +1,7 @@
+import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import { Brain, Home, Smartphone, Wallet } from 'lucide-react';
+import { createClient } from '@/lib/supabase/server';
 
 const cards = [
   {
@@ -28,7 +30,14 @@ const cards = [
   }
 ];
 
-export default function HomePage() {
+export default async function HomePage() {
+  const supabase = await createClient();
+  const { data } = await supabase.auth.getUser();
+
+  if (!data.user) {
+    redirect('/login');
+  }
+
   return (
     <div className="space-y-4">
       <section className="glass rounded-[2rem] p-6">

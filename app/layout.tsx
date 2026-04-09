@@ -7,7 +7,11 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Sob Medida PWA',
-  description: 'App PWA de desenvolvimento pessoal com trackers e modo offline.',
+  description: 'App PWA de desenvolvimento pessoal com tracker...',
+  robots: {
+    index: false,
+    follow: false,
+  },
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
