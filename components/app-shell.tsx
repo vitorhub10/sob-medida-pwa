@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Brain, Home, Smartphone, Wallet } from 'lucide-react';
 import { InstallButton } from '@/components/install-button';
+import LogoutButton from '@/components/logout-button';
 
 const navItems = [
   { href: '/', label: 'Home', icon: Home },
@@ -24,8 +25,12 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             Sob Medida
           </h1>
         </div>
-        <div className="rounded-2xl border border-emerald-300/25 bg-emerald-400/10 px-3 py-1 text-xs text-emerald-200">
-          offline ready
+
+        <div className="flex items-center gap-2">
+          <div className="rounded-2xl border border-emerald-300/25 bg-emerald-400/10 px-3 py-1 text-xs text-emerald-200">
+            offline ready
+          </div>
+          <LogoutButton />
         </div>
       </header>
 
